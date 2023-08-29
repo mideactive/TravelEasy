@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User-specific page for TravelEasy">
+    <meta name="keywords" content="TravelEasy, user page, profile">
+    <meta name="author" content="Olumide jenyo">
+    <title>User Page - TravelEasy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_page.css') }}">
+</head>
+<body>
+    <header>
+        <div class="user-header">
+            <div class="user-name">Hi, {{ user.firstname }}!</div>
+            <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="TravelEasy Logo">
+            <a class="transactions-link" href="{{ url_for('transactions') }}">Transactions</a>
+        </div>
+        <img class="traveleasy-icon" src="{{ url_for('static', filename='images/traveleasy-icon.png') }}" alt="TravelEasy Icon">
+    </header>
+    <section class="account-section">
+        <div class="balance">
+            <div class="balance-text">Account Balance</div>
+            <div class="balance-amount">{{ user.account_balance }}</div>
+        </div>
+        <div class="visibility-icon">
+            <img class="eye-icon" src="{{ url_for('static', filename='images/eye-icon.png') }}" alt="Eye Icon">
+        </div>
+    </section>
+    <section class="transaction-section">
+        <a class="transaction-link" href="{{ url_for('deposit') }}">Deposit</a>
+        <a class="transaction-link" href="{{ url_for('withdraw') }}">Withdraw</a>
+    </section>
+    <section class="search-section">
+        <input type="text" class="search-bar" placeholder="Search for Tickets">
+    </section>
+    <section class="ticket-section">
+	<div class="ticket-box airplane">
+            <a href="{{ url_for('buy_airplane_ticket') }}">Buy Airplane Ticket</a>
+        </div>
+        <div class="ticket-box train">
+            <a href="{{ url_for('buy_train_ticket') }}">Buy Train Ticket</a>
+        </div>
+	<div class="ticket-box bus">
+            <a href="{{ url_for('buy_bus_ticket') }}">Buy Bus Ticket</a>
+        </div>
+        <div class="ticket-box profile">
+            <a href="{{ url_for('user_profile') }}">Profile</a>
+        </div>
+        <div class="ticket-box settings">
+            <a href="{{ url_for('user_settings') }}">Settings</a>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2023 TravelEasy. All rights reserved.</p>
+    </footer>
+</body>
+</html>
