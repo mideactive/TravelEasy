@@ -1,0 +1,322 @@
+/* Reset default browser styles */
+body, h1, h2, h3, p, ul, li, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background-color: #ffcc80; /* A softer shade of orange */
+    padding: 2rem; /* Increased padding for a larger header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Add position for pseudo-element */
+}
+
+/* Logo styles */
+.logo img {
+    width: 150px; /* Adjust the size as needed */
+    height: auto;
+    border-radius: 50%; /* Makes the logo circular */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Pseudo-element for a decorative circle behind the logo */
+.logo::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    border-radius: 50%;
+    top: -50px;
+    left: calc(50% - 100px);
+    z-index: -1;
+}
+
+/* Add hover effect to the logo */
+.logo img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Hero section styles */
+.hero {
+    background-image: url('./image/hero-bg.jpg');
+    background-color: #f9f9f9;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #fff;
+    padding: 5rem 0;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Hero heading styles */
+.hero-content h1 {
+    font-size: 2.5rem; /* Increase the font size for the heading */
+    color: #333; /* Dark gray font color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle text shadow */
+    margin-bottom: 1rem; /* Add some spacing below the heading */
+}
+
+/* Hero paragraph styles */
+.hero-content p {
+    font-size: 1.2rem; /* Increase the font size for the paragraph */
+    color: #666; /* Medium gray font color */
+    margin-bottom: 2rem; /* Add more spacing below the paragraph */
+}
+
+.cta-button {
+    font-size:1.5rem;
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border:none;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ffcc80;
+}
+
+/* Position the buttons in the center of the hero content */
+.hero-content {
+    text-align: center;
+}
+
+/* Add spacing between the buttons and the text */
+.hero-content {
+    margin-top: 20px;
+}
+
+/* styling signup form */
+    .signup-form {
+        display: none;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .signup-form input[type="text"],
+    .signup-form input[type="email"],
+    .signup-form input[type="password"],
+    .signup-form input[type="tel"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .signup-form button[type="submit"] {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .signup-form button[type="submit"]:hover {
+        background-color: #2980b9;
+    }
+
+/* CSS for the login section */
+.login-section {
+    background-color: #f7f7f7;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom:50px;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form button {
+    width: 100%;
+    padding: 15px 2px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f7f7f7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus,
+.login-form button:focus {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-form label {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-form input[type="checkbox"] {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.login-form button {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+.login-form a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.login-form a:hover {
+    color: #0056b3;
+}
+
+/* Sales section styles */
+.sales {
+    display: flex;
+    justify-content: space-around;
+    padding: -1rem;
+    background-color: #fff;
+    flex-wrap: wrap;
+    margin-bottom:50px;
+}
+
+.sales-item {
+    text-align: center;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    flex: 1;
+}
+
+.sales-item h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.sales-item ul {
+    list-style: none;
+    padding: 0;
+    color: #666;
+}
+
+.sales-item li {
+    margin-bottom: 0.5rem;
+}
+
+.sales-item button {
+    background-color: #ff9800;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sales-item button:hover {
+    background-color: #ffcc80;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    width: 100%; /* Set the width to 100% */
+    position: fixed; /* Set the position to fixed */
+    bottom: 0; /* Position at the bottom */
+    left: 0; /* Align to the left */
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .hero {
+        padding: 3rem 0;
+    }
+
+    .hero-content {
+        max-width: 90%;
+    }
+
+    .sales-item {
+        flex-basis: 100%;
+    }
+}
+/* Responsive Media Queries */
+@media screen and (max-width: 768px) {
+    .login-form {
+        max-width: 90%;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form button {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+/* Responsive styles */
+    @media (max-width: 600px) {
+        .signup-form {
+            max-width: 100%;
+            padding: 15px;
+        }
+
+        .signup-form button[type="submit"] {
+            font-size: 14px;
+            padding: 8px 16px;
+        }
+    }

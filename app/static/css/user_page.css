@@ -1,0 +1,272 @@
+/* Reset default styles */
+body, h1, p, form, input {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* User Header */
+.user-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: #333;
+    color: #fff;
+}
+
+.user-name {
+    font-size: 1.5em;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.transactions-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.transactions-link:hover {
+    color: #f39c12;
+}
+
+/* Account Section */
+.account-section {
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 1em;
+    text-align: center;
+}
+
+.balance {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.balance-amount {
+    font-size: 2em;
+    color: #27ae60;
+}
+
+.visibility-icon {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.visibility-icon:hover {
+    transform: scale(1.2);
+}
+
+/*Transaction section*/
+.transaction-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.transaction-link {
+    display: inline-block;
+    padding: 0.8em 2em;
+    margin: 0 1em;
+    background-color: #f39c12;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    font-weight: bold;
+    border: 2px solid #f39c12;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.transaction-link:hover {
+    background-color: #e74c3c;
+    color: #fff;
+    border-color: #e74c3c;
+}
+
+.transaction-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.transaction-link {
+    display: inline-block;
+    padding: 0.8em 2em;
+    margin: 0 1em;
+    background-color: #f39c12;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 1em;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.transaction-link:hover {
+    background-color: #e74c3c;
+}
+
+/* Ticket Section */
+.ticket-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 2em;
+    background-color: #3498db;
+    border-radius: 10px;
+    margin-top: 2em;
+}
+
+.ticket-box {
+    text-align: center;
+    padding: 1.5em;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 24%;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.ticket-box:hover {
+    transform: translateY(-5px);
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.ticket-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 2em;
+    background-color: #3498db;
+    border-radius: 10px;
+    margin-top: 2em;
+}
+
+.ticket-box {
+    text-align: center;
+    padding: 1.5em;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 24%;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.ticket-box:hover {
+    transform: translateY(-5px);
+    background-color: #f39c12;
+    color: #fff;
+}
+
+/* Link styles */
+.ticket-box a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+    display: block;
+    margin-top: 1em;
+    font-size: 1.2em;
+}
+
+.ticket-box a:hover {
+    color: #f39c12;
+}
+
+/* Search Section */
+.search-section {
+    text-align: center;
+    padding: 2em;
+}
+
+.search-bar {
+    width: 80%;
+    padding: 1em;
+    border-radius: 30px;
+    border: 2px solid #3498db;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.search-btn {
+    padding: 0.8em 1.5em;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.search-btn:hover {
+    background-color: #f39c12;
+}
+
+/* Footer */
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.8em;
+}
+
+@media screen and (max-width: 768px) {
+    /* Responsive styles for smaller screens */
+    .user-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .user-name {
+        margin-top: 1em;
+    }
+
+    .logo {
+        margin-top: 1em;
+    }
+
+    .account-section {
+        padding: 1.5em;
+    }
+
+    .ticket-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ticket-box {
+        width: 100%;
+        margin-top: 1em;
+    }
+}
