@@ -1,272 +1,246 @@
 /* Reset default styles */
-body, h1, p, form, input {
+* {
     margin: 0;
     padding: 0;
-    border: none;
-    outline: none;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    font-family: 'Helvetica', sans-serif;
 }
 
+/* Body styles */
 body {
     background-color: #f8f8f8;
     color: #333;
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
-/* User Header */
-.user-header {
+/* Header styles */
+/* Header styles */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
-    background-color: #333;
-    color: #fff;
+}
+
+.user-header {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Take up available space */
 }
 
 .user-name {
-    font-size: 1.5em;
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: auto; /* Pushes the greeting to the left */
 }
 
 .logo {
-    width: 50px;
-    height: 50px;
+    max-width: 100px;
+    height: auto;
+    margin: 0 auto; /* Center the logo */
 }
 
 .transactions-link {
-    color: #fff;
+    color: #ff6600;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease;
 }
 
 .transactions-link:hover {
-    color: #f39c12;
+    color: #ff8000;
 }
 
-/* Account Section */
+.traveleasy-icon {
+    max-width: 40px;
+    height: auto;
+}
+
+/* Account section styles */
 .account-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #fff;
-    padding: 2em;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 1em;
-    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .balance {
-    font-size: 1.2em;
-    margin-bottom: 0.5em;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .balance-amount {
-    font-size: 2em;
-    color: #27ae60;
+    font-size: 24px;
+    color: #ff6600;
 }
 
 .visibility-icon {
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
-.visibility-icon:hover {
-    transform: scale(1.2);
-}
-
-/*Transaction section*/
-.transaction-section {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 2em;
+}
+
+.eye-icon {
+    max-width: 20px;
+    height: auto;
+}
+
+/* Transaction section styles */
+.transaction-section {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
 }
 
 .transaction-link {
-    display: inline-block;
-    padding: 0.8em 2em;
-    margin: 0 1em;
-    background-color: #f39c12;
+    background-color: #ff6600;
     color: #fff;
-    border-radius: 30px;
-    font-size: 1.2em;
     text-decoration: none;
-    transition: background-color 0.3s ease-in-out;
-    font-weight: bold;
-    border: 2px solid #f39c12;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .transaction-link:hover {
-    background-color: #e74c3c;
-    color: #fff;
-    border-color: #e74c3c;
+    background-color: #ff8000;
 }
 
-.transaction-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2em;
-}
-
-.transaction-link {
-    display: inline-block;
-    padding: 0.8em 2em;
-    margin: 0 1em;
-    background-color: #f39c12;
-    color: #fff;
-    border-radius: 30px;
-    font-size: 1em;
-    text-decoration: none;
-    transition: background-color 0.3s ease-in-out;
-    font-weight: bold;
-}
-
-.transaction-link:hover {
-    background-color: #e74c3c;
-}
-
-/* Ticket Section */
-.ticket-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    padding: 2em;
-    background-color: #3498db;
-    border-radius: 10px;
-    margin-top: 2em;
-}
-
-.ticket-box {
-    text-align: center;
-    padding: 1.5em;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 24%;
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.ticket-box:hover {
-    transform: translateY(-5px);
-    background-color: #f39c12;
-    color: #fff;
-}
-
-.ticket-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    padding: 2em;
-    background-color: #3498db;
-    border-radius: 10px;
-    margin-top: 2em;
-}
-
-.ticket-box {
-    text-align: center;
-    padding: 1.5em;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 24%;
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.ticket-box:hover {
-    transform: translateY(-5px);
-    background-color: #f39c12;
-    color: #fff;
-}
-
-/* Link styles */
-.ticket-box a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.3s ease-in-out;
-    display: block;
-    margin-top: 1em;
-    font-size: 1.2em;
-}
-
-.ticket-box a:hover {
-    color: #f39c12;
-}
-
-/* Search Section */
+/* Search section styles */
 .search-section {
-    text-align: center;
-    padding: 2em;
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
 .search-bar {
-    width: 80%;
-    padding: 1em;
-    border-radius: 30px;
-    border: 2px solid #3498db;
-    font-size: 1.2em;
-    margin-bottom: 1em;
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-.search-btn {
-    padding: 0.8em 1.5em;
-    background-color: #3498db;
+.search-button {
+    background-color: #ff6600;
     color: #fff;
     border: none;
-    border-radius: 30px;
-    font-size: 1.2em;
+    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease;
 }
 
-.search-btn:hover {
-    background-color: #f39c12;
+.search-button:hover {
+    background-color: #ff8000;
 }
 
-/* Footer */
+/* Ticket section styles */
+.ticket-section {
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
 
-footer {
-    margin-top: auto;
+.ticket-box {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
     text-align: center;
-    padding: 1em;
+}
+
+.airplane {
+    background-color: #ffb400;
+}
+
+.train {
+    background-color: #0099cc;
+}
+
+.bus {
+    background-color: #66cc66;
+}
+
+.profile {
+    background-color: #ff6600;
+}
+
+.settings {
+    background-color: #ff9900;
+}
+
+.ticket-box a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.ticket-box a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Footer styles */
+footer {
     background-color: #333;
     color: #fff;
-    font-size: 0.8em;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-    /* Responsive styles for smaller screens */
+/* Responsive styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .user-header {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
     }
 
     .user-name {
-        margin-top: 1em;
+        margin: 10px 0;
     }
 
-    .logo {
-        margin-top: 1em;
+    .traveleasy-icon {
+        margin-top: 15px;
     }
 
-    .account-section {
-        padding: 1.5em;
+    .transaction-section {
+        flex-direction: column;
+    }
+
+    .transaction-link {
+        margin-top: 10px;
+    }
+
+    .search-section {
+        flex-direction: column;
+    }
+
+    .search-bar {
+        margin-top: 10px;
+    }
+
+    .search-button {
+        margin-top: 10px;
     }
 
     .ticket-section {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .ticket-box {
-        width: 100%;
-        margin-top: 1em;
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }

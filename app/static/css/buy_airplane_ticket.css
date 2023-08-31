@@ -1,0 +1,249 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li, button {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+}
+
+body {
+    background-color: #f7f7f7;
+}
+
+/* Header styles */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff6600;
+}
+
+/* Main content styles */
+main {
+    padding: 40px;
+}
+
+.search-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: grid;
+    gap: 15px;
+}
+
+.search-form label {
+    font-weight: 600;
+}
+
+.search-form input[type="text"],
+.search-form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.search-form button {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.search-form button:hover {
+    background-color: #ff8000;
+}
+
+/* Add the airline and class selection options styles */
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Center the buttons and text */
+.flight-type-buttons {
+    text-align: center;
+}
+
+/* Style for the buttons */
+.flight-type-buttons button {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Hover effect for the buttons */
+.flight-type-buttons button:hover {
+    background-color: #ff8000;
+}
+
+.local-form {
+    display: none;
+}
+
+/* Apply lovely fonts */
+#local-flights-button, #international-flights-button {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Flight results styles */
+.flight-results-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* international flight*/
+.international-form {
+    margin-top: 20px;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.international-form h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.international-form label {
+    font-weight: 600;
+}
+
+.international-form input[type="text"],
+.international-form input[type="date"],
+.international-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.international-form button {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.international-form button:hover {
+    background-color: #ff8000;
+}
+
+.flight-card {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.flight-card img {
+    max-width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.flight-details h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+.flight-details p {
+    margin-bottom: 10px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.btn-book {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.btn-book:hover {
+    background-color: #ff8000;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buy Airplane Ticket - TravelEasy">
+    <meta name="keywords" content="TravelEasy, airline, flights, tickets">
+    <meta name="author" content="Olumide Jenyo">
+    <title>Buy Airplane Ticket - TravelEasy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buy_airplane_ticket.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+	<header>
+        <!-- Logo and Navigation Links -->
+        <div class="logo">
+            <a href="{{ url_for('user_home') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="TravelEasy Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('user_page') }}">Home</a></li>
+                <li><a href="#">Flights</a></li>
+                <li><a href="#">Hotels</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+	    <section class="search-section">
+    <h1>Find Your Flight</h1>
+    <div class="flight-type-buttons">
+        <button id="local-flights-button">Local Flights</button>
+        <button id="international-flights-button">International Flights</button>
+    </div>
+   </section>
+
+   <section class="search-section local-form">
+    <h1>Find Your Local Flight</h1>
+    <form class="search-form" action="{{ url_for('api_search_flights') }}" method="GET">
+        <!-- Local flight form fields here -->
+	<form class="search-form" action="{{ url_for('api_search_flights') }}" method="GET">
+        <label for="from">From:</label>
+        <input type="text" id="from" name="from" placeholder="Departure City">
+
+        <label for="to">To:</label>
+        <input type="text" id="to" name="to" placeholder="Destination City">
+
+        <label for="departure-date">Departure Date:</label>
+        <input type="date" id="departure-date" name="departure_date">
+
+        <label for="return-date">Return Date:</label>
+        <input type="date" id="return-date" name="return_date">
+
+        <!-- Add the airline and class selection options here -->
+        <label for="airline">Select Airline:</label>
+        <select id="airline" name="airline">
+            <option value="">Any Airline</option>
+            <option value="Airline A">Airline A</option>
+            <option value="Airline B">Airline B</option>
+            <!-- Add more options for other airlines -->
+        </select>
+
+        <label for="class">Select Class:</label>
+        <select id="class" name="class">
+            <option value="">Any Class</option>
+            <option value="economy">Economy</option>
+            <option value="business">Business</option>
+            <option value="first">First Class</option>
+        </select>
+	<button type="submit">Search Flights</button>
+    </form>
+   </section>
+    <section class="search-section international-form" style="display: none;">
+    <h1>Find Your International Flight</h1>
+    <form class="search-form" action="{{ url_for('api_search_flights') }}" method="GET">
+        <label for="from-country">From Country:</label>
+        <select id="from-country" name="from_country">
+            <option value="">Select Country</option>
+            <option value="USA">United States</option>
+            <option value="UK">United Kingdom</option>
+            <!-- Add more countries -->
+        </select>
+
+        <label for="from-state">From State:</label>
+        <select id="from-state" name="from_state">
+            <option value="">Select State</option>
+            <!-- Add states based on selected country -->
+        </select>
+
+        <label for="to-country">To Country:</label>
+        <select id="to-country" name="to_country">
+            <option value="">Select Country</option>
+            <option value="USA">United States</option>
+            <option value="UK">United Kingdom</option>
+            <!-- Add more countries -->
+        </select>
+
+        <label for="to-state">To State:</label>
+        <select id="to-state" name="to_state">
+            <option value="">Select State</option>
+            <!-- Add states based on selected country -->
+        </select>
+
+        <label for="departure-date">Departure Date:</label>
+        <input type="date" id="departure-date" name="departure_date">
+
+        <label for="return-date">Return Date:</label>
+        <input type="date" id="return-date" name="return_date">
+
+        <label for="airline">Select Airline:</label>
+        <select id="airline" name="airline">
+            <option value="">Any Airline</option>
+            <option value="Airline C">Airline C</option>
+            <option value="Airline D">Airline D</option>
+            <!-- Add more options for other airlines -->
+        </select>
+
+        <label for="class">Select Class:</label>
+        <select id="class" name="class">
+            <option value="">Any Class</option>
+            <option value="economy">Economy</option>
+            <option value="business">Business</option>
+            <option value="first">First Class</option>
+        </select>
+
+        <button type="submit">Search Flights</button>
+    </form>
+</section>
+        <section class="flight-results-section">
+            <h2>Search Results</h2>
+            <div class="flight-card">
+                <img src="flight_image.jpg" alt="Airplane">
+                <div class="flight-details">
+                    <h3>Airline XYZ</h3>
+                    <p>Departure: 08:00 AM, Arrival: 10:00 AM</p>
+                    <p>Price: $200</p>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Add more flight cards here -->
+	    <div class="flight-card">
+                <img src="flight_image.jpg" alt="Airplane">
+                <div class="flight-details">
+                    <h3>Airline XYZ</h3>
+                    <p>Departure: 08:00 AM, Arrival: 10:00 AM</p>
+                    <p>Price: $200</p>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 TravelEasy. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='jscript/buy_airplane_ticket.js') }}"></script>
+</body>
+</html>

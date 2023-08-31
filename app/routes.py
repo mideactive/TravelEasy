@@ -5,6 +5,7 @@ from random import choice  # For generating random tokens
 from string import ascii_letters, digits  # For generating random tokens
 from flask_mail import Message  # For sending emails
 from app import app, db, mail  # Import the 'mail' object from the app package
+import requests
 from app import app, db
 from app.models import User
 from flask_wtf.csrf import CSRFProtect
@@ -13,6 +14,21 @@ from app.forms.login import LoginForm
 
 # Initialize CSRF protection
 csrf = CSRFProtect(app)
+
+# Define a list of dictionaries for each airline's API information
+airline_apis = [
+    {
+        'name': 'Airline A',
+        'endpoint': 'https://api.airlinea.com/flights',
+        'api_key': 'your_api_key_for_airline_a'
+    },
+    {
+        'name': 'Airline B',
+        'endpoint': 'https://api.airlineb.com/flights',
+        'api_key': 'your_api_key_for_airline_b'
+    },
+    # Add more airlines as needed
+]
 
 # Route to serve the HTML template
 @app.route('/', methods=['GET', 'POST'])
@@ -168,12 +184,125 @@ def buy_train_ticket():
 def buy_airplane_ticket():
     # Define the logic for buying airplane tickets
     # You can render a template or return a form for ticket purchase
-    return "Buy Airplane Ticket page"
+    return render_template('buy_airline_ticket.html')
 
-@app.route('/buy_bus_ticket', methods=['GET'])
+@app.route('/')
+def user_home():
+    # Your home page logic here
+    return render_template('user_page.html')
+
+@app.route('/api/search_flights', methods=['GET'])
+def api_search_flights():
+    departure_city = request.args.get('from')
+    destination_city = request.args.get('to')
+    departure_date = request.args.get('departure_date')
+    return_date = request.args.get('return_date')
+    selected_airline = request.args.get('airline')  # New parameter for selected airline
+    selected_class = request.args.get('class')  # New parameter for selected class
+
+    # Initialize a list to store flight details from all airlines
+    all_flight_details = []
+
+    for airline in airline_apis:
+        # Construct the request parameters for the airline API
+        params = {
+            'from': departure_city,
+            'to': destination_city,
+            'departure_date': departure_date,
+            'return_date': return_date,
+            'api_key': airline['api_key']
+        }
+
+        # Make a request to the airline API
+        response = requests.get(airline['endpoint'], params=params, verify=False)
+
+        if response.status_code == 200:
+            flight_details = response.json()
+            # Process and filter the flight details as needed
+            for flight in flight_details:
+                flight['airline'] = airline['name']
+                flight['price'] = flight['data']['price']
+                flight['class'] = flight['data']['class']
+
+                # Filter flights based on selected options
+                if (not selected_airline or flight['airline'] == selected_airline) and \
+                   (not selected_class or flight['class'] == selected_class):
+                    all_flight_details.append(flight)
+                else:
+                    return jsonify(error=f'Failed to fetch flight details from {airline["name"]} API'), 500
+
+
+                return jsonify(all_flight_details)
+
+@app.route('/api/search_international_flights', methods=['GET'])
+def api_search_international_flights():
+    from_country = request.args.get('from_country')
+    from_state = request.args.get('from_state')
+    to_country = request.args.get('to_country')
+    to_state = request.args.get('to_state')
+    departure_date = request.args.get('departure_date')
+    return_date = request.args.get('return_date')
+    selected_airline = request.args.get('airline')  # New parameter for selected airline
+    selected_class = request.args.get('class')  # New parameter for selected class
+
+
+    # Initialize a list to store flight details from all airlines
+    all_flight_details = []
+
+    for airline in airline_apis:
+        # Construct the request parameters for the airline API
+        params = {
+            'from': departure_city,
+            'to': destination_city,
+            'departure_date': departure_date,
+            'return_date': return_date,
+            'api_key': airline['api_key']
+        }
+
+        # Initialize a list to store flight details from all airlines
+    all_flight_details = []
+
+    for airline in airline_apis:
+        # Construct the request parameters for the airline API
+        params = {
+            'from': departure_city,
+            'to': destination_city,
+            'departure_date': departure_date,
+            'return_date': return_date,
+            'api_key': airline['api_key']
+        }
+
+        # Make a request to the airline API
+        response = requests.get(airline['endpoint'], params=params, verify=False)
+
+        if response.status_code == 200:
+            flight_details = response.json()
+            # Process and filter the flight details as needed
+            for flight in flight_details:
+                flight['airline'] = airline['name']
+                flight['price'] = flight['data']['price']
+                flight['class'] = flight['data']['class']
+
+                # Filter flights based on selected options
+                if (not selected_airline or flight['airline'] == selected_airline) and \
+                   (not selected_class or flight['class'] == selected_class):
+                    all_flight_details.append(flight)
+                else:
+                    return jsonify(error=f'Failed to fetch flight details from {airline["name"]} API'), 500
+
+
+                return jsonify(all_flight_details)
+
+
+@app.route('/airline_details/<int:airline_id>')
+def airline_details(airline_id):
+    # Implement logic to retrieve and display details for the given airline_id
+    return render_template('airline_page.html')
+
+@app.route('/airline_page', methods=['GET'])
 def buy_bus_ticket():
     # You can add your logic here, if needed
-    return render_template('buy_bus_ticket.html')
+    return render_template('airline_page.html')
 
 @app.route('/user_profile')
 def user_profile():
@@ -192,3 +321,6 @@ def user_settings():
 def logout():
     session.pop('username', None)
     return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
