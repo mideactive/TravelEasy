@@ -11,17 +11,22 @@ body {
     line-height: 1.6;
 }
 
-/* Header styles */
+/* Header Styles */
 header {
     background-color: #ffcc80; /* A softer shade of orange */
     padding: 2rem; /* Increased padding for a larger header */
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Align logo to the right and header-links to the left */
     align-items: center;
     position: relative; /* Add position for pseudo-element */
 }
 
-/* Logo styles */
+/* Logo Styles (aligned to the right) */
+.logo {
+    text-align: right;
+}
+
+/* Logo Image Styles */
 .logo img {
     width: 150px; /* Adjust the size as needed */
     height: auto;
@@ -47,6 +52,27 @@ header {
 .logo img:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease;
+}
+
+/* Header Links Styles (aligned to the left) */
+.header-links {
+    text-align: left;
+}
+
+/* Style for Header Links */
+.header-links a {
+    color: white;
+    text-decoration: none; /* Remove default underline */
+    margin-right: 20px; /* Add spacing between links */
+    font-weight: bold; /* Bold font weight */
+    font-size: 18px; /* Font size */
+    font-family: 'Arial', sans-serif; /* Lovely text font */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth color and underline transition on hover */
+}
+
+/* Underline on Hover */
+.header-links a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
 /* Hero section styles */

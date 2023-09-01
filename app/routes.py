@@ -316,6 +316,26 @@ def user_settings():
     # You can render a template or return user settings data
     return "User Settings page"
 
+@app.route('/about')
+def about():
+    # Your code for the About page goes here
+    return render_template('about.html')
+
+@app.route('/privacy')
+def privacy():
+    # Your code for the Privacy page goes here
+    return render_template('privacy.html')
+
+@app.route('/terms')
+def terms():
+    # Your code for the Terms page goes here
+    return render_template('terms.html')
+
+@app.route('/contact')
+def contact():
+    # Your code for the Contact page goes here
+    return render_template('contact.html')
+
 # Logout route
 @app.route('/logout')
 def logout():

@@ -1,0 +1,230 @@
+/* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+
+/* Header styling */
+header {
+    background-color: #4285f4; /* Google-like blue */
+    color: #fff;
+    text-align: center;
+    padding: 60px 0;
+    position: relative;
+}
+
+.cover-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Navigation links styling */
+.nav-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin: 0 20px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ccc;
+}
+
+/* Button styling */
+.btn {
+    text-decoration: none;
+    background-color: #fff;
+    color: #4285f4;
+    font-size: 18px;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: -3em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #357ae8; /* Slightly darker blue on hover */
+    color: #fff; /* Change text color on hover */
+}
+
+/* CSS for section1 */
+        #section1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            background-color: #f7f7f7;
+        }
+
+        .feature {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Optional hover effect */
+        .feature:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+/* CSS for section2 */
+        #section2 {
+            background-color: #f9f9f9;
+            padding: 60px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+	    margin-top: -70px;
+        }
+
+        #section2 h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #section2 p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        #section2 a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        #section2 a:hover {
+            text-decoration: underline;
+        }
+
+        #section2 h3 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #section2 ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #section2 ul li {
+            margin-bottom: 10px;
+        }
+
+        #section2 ul li a {
+            font-size: 20px;
+            color: #007BFF;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        #section2 ul li a:hover {
+            text-decoration: underline;
+        }
+
+/* CSS for section3 */
+        #section3 {
+            text-align: center; /* Center the content horizontally */
+            padding: 40px;
+            background-color: #f7f7f7;
+	    margin-top: -100px;
+        }
+
+        #section3 h2 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 60px;
+        }
+
+        iframe {
+            width: 80%; /* Adjust the width as needed */
+            max-width: 800px; /* Set a maximum width */
+            height: auto; /* Maintain aspect ratio */
+            border: none; /* Remove iframe border */
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease; /* Add a hover effect */
+        }
+
+        /* Optional hover effect */
+        iframe:hover {
+            transform: scale(1.05); /* Enlarge the video on hover */
+        }
+
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+    /* Adjust styles for screens up to 768px wide */
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    /* Add more styles as needed for smaller screens */
+}
+
+@media (max-width: 576px) {
+    /* Adjust styles for screens up to 576px wide */
+    header h1 {
+        font-size: 24px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    /* Add more styles as needed for smaller screens */
+}
