@@ -8,7 +8,6 @@ body, h1, h2, h3, p {
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    color: #333; /* Updated text color */
 }
 
 .container {
@@ -23,13 +22,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Increased left and right padding for more space */
+    padding: 10px 0;
 }
 
-/* Add styles for left, center, and right sections in the header */
-.logo {
-    display: flex;
-    align-items: center;
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
 }
 
 nav ul {
@@ -56,12 +55,26 @@ main {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h2 {
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-/* Apply styles to buttons and links */
+/* Center the buttons within .bus-type-buttons */
+.bus-type-buttons {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 20px;
+}
+
+/* Search Form Styles */
+.search-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
 button {
     background-color: #4285f4;
     color: #fff;
@@ -70,95 +83,53 @@ button {
     padding: 10px 20px;
     margin: 0 10px;
     cursor: pointer;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #357ae8;
 }
 
-/* Search Form Styles */
-.search-section {
-    text-align: center;
-    margin-bottom: 20px;
+.form-group {
+    margin: 10px 0;
 }
 
-.flight-type-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-button#local-flights-button,
-button#international-flights-button {
-    padding: 10px 20px;
-    margin: 0 10px;
-}
-
-/* Apply styles to forms and form elements */
-
-
-.search-form label {
+label {
     font-weight: bold;
 }
 
 input[type="text"],
-input[type="date"],
-select {
+input[type="date"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    color: #333; /* Updated text color */
 }
 
 button[type="submit"] {
     margin-top: 20px;
 }
 
-/* Flight Results Styles */
-.flight-results-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.flight-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 10px;
-    width: calc(33.33% - 20px);
-    text-align: center;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-.flight-card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-/* Footer Styles */
 /* Footer Styles */
 footer {
     text-align: center;
     padding: 10px 0;
     background-color: #4285f4;
     color: #fff;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    position: relative; /* Add this to make room for the footer */
-    margin-top: auto; /* Push the footer to the bottom */
 }
 
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 768px) {
-    /* Adjust styles for smaller screens here */
+    /* Header Styles for Mobile */
     header {
         flex-direction: column;
         align-items: center;
+    }
+
+    header h1 {
+        margin: 10px 0;
     }
 
     nav ul {
@@ -171,7 +142,17 @@ footer {
         margin-bottom: 10px;
     }
 
-    .flight-card {
-        width: calc(50% - 20px);
+    /* Main Section Styles for Mobile */
+    main {
+        margin: 10px;
+    }
+
+    /* Search Form Styles for Mobile */
+    .search-buttons {
+        flex-direction: column;
+    }
+
+    button {
+        margin: 10px 0;
     }
 }

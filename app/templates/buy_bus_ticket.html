@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buy Bus Tickets - TravelEasy">
+    <meta name="keywords" content="TravelEasy, bus, tickets">
+    <meta name="author" content="Olumide Jenyo">
+    <title>Buy Bus Tickets - TravelEasy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buy_bus_ticket.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('user_home') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="TravelEasy Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('user_page') }}">Home</a></li>
+                <li><a href="#">Flights</a></li>
+                <li><a href="#">Cabs</a></li>
+                <li><a href="#">Hotels</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <h1>Find Your Bus Ticket</h1>
+            <div class="bus-type-buttons">
+                <button id="inter-state-button">Inter-State</button>
+                <button id="intra-state-button">Intra-State</button>
+            </div>
+        </section>
+
+        <section class="search-section inter-state-form" style="display: none;">
+            <h1>Inter-State Bus Ticket</h1>
+            <form class="search-form" action="{{ url_for('api_search_inter_state_bus_tickets') }}" method="GET">
+                <!-- Inter-State bus ticket form fields here -->
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from" placeholder="Departure City">
+
+                <label for="to">To:</label>
+                <input type="text" id="to" name="to" placeholder="Destination City">
+
+                <label for="departure-date">Departure Date:</label>
+                <input type="date" id="departure-date" name="departure_date">
+
+                <label for="return-date">Return Date:</label>
+                <input type="date" id="return-date" name="return_date">
+
+                <!-- Add more fields for bus operator, class, etc. -->
+                
+                <button type="submit">Search Bus Tickets</button>
+            </form>
+        </section>
+
+        <section class="search-section intra-state-form" style="display: none;">
+            <h1>Intra-State Bus Ticket</h1>
+            <form class="search-form" action="{{ url_for('api_search_intra_state_bus_tickets') }}" method="GET">
+                <!-- Intra-State bus ticket form fields here -->
+                <label for="from-city">From City:</label>
+                <input type="text" id="from-city" name="from_city" placeholder="Departure City">
+
+                <label for="to-city">To City:</label>
+                <input type="text" id="to-city" name="to_city" placeholder="Destination City">
+
+                <label for="departure-date">Departure Date:</label>
+                <input type="date" id="departure-date" name="departure_date">
+
+                <label for="return-date">Return Date:</label>
+                <input type="date" id="return-date" name="return_date">
+
+                <!-- Add more fields for bus operator, class, etc. -->
+                
+                <button type="submit">Search Bus Tickets</button>
+            </form>
+        </section>
+        
+        <!-- Bus ticket search results section can be added here -->
+    </main>
+
+    <footer>
+        <p>&copy; 2023 TravelEasy. All rights reserved.</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='jscript/buy_bus_ticket.js') }}"></script>
+</body>
+</html>
+

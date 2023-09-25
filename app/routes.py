@@ -11,9 +11,13 @@ from app.models import User
 from flask_wtf.csrf import CSRFProtect
 from app.forms.signup import SignUpForm
 from app.forms.login import LoginForm
+from flask_socketio import SocketIO
+import os
 
 # Initialize CSRF protection
 csrf = CSRFProtect(app)
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', os.urandom(24))
+socketio = SocketIO(app)
 
 # Define a list of dictionaries for each airline's API information
 airline_apis = [
@@ -30,12 +34,28 @@ airline_apis = [
     # Add more airlines as needed
 ]
 
+chat_messages = []
+
 # Route to serve the HTML template
 @app.route('/', methods=['GET', 'POST'])
 def index():
     signup_form = SignUpForm()  # Instantiate the signup form
     login_form = LoginForm()  # Instantiate the login form
     return render_template('index.html', signup_form=signup_form, login_form=login_form)
+
+@socketio.on('connect')
+def handle_connect():
+    print('Client connected')
+
+@socketio.on('disconnect')
+def handle_disconnect():
+    print('Client disconnected')
+
+@socketio.on('message')
+def handle_message(message):
+    print('Received message:', message)
+    chat_messages.append(message)
+    socketio.emit('message', {'message': message}, broadcast=True)
 
 # Route to handle form submission
 @app.route('/signup', methods=['POST'])
@@ -174,22 +194,60 @@ def withdraw():
     # You can render a template or return a form for withdrawals
     return "Withdraw page"
 
-@app.route('/buy_train_ticket')
+@app.route('/buy_train_ticket', methods=['Get'])
 def buy_train_ticket():
     # Define the logic for buying train tickets
     # You can render a template or return a form for ticket purchase
-    return "Buy Train Ticket page"
+    return render_template('buy_train_ticket.html')
 
-@app.route('/buy_airplane_ticket')
-def buy_airplane_ticket():
-    # Define the logic for buying airplane tickets
-    # You can render a template or return a form for ticket purchase
-    return render_template('buy_airline_ticket.html')
+@app.route('/buy_bus_ticket', methods=['Get'])
+def buy_bus_ticket():
+    """ Define logic for buying bus tickets """
+    """ Render template for bus ticket purchase """
+    return render_template('buy_bus_ticket.html')
+
+@app.route('/api/intra_state_bus_tickets', methods=['GET'])
+def api_search_intra_state_bus_tickets():
+    # Extract query parameters from the request
+    from_city = request.args.get('from_city')
+    to_city = request.args.get('to_city')
+    departure_date = request.args.get('departure_date')
+    return_date = request.args.get('return_date')
+
+    # Implement the logic to search for intra-state bus tickets here
+    # You can make API requests to bus ticket providers and process the results
+    # Example:
+    # bus_ticket_results = search_intra_state_bus_tickets(from_city, to_city, departure_date, return_date)
+
+    # Return the results as JSON
+    return jsonify(bus_ticket_results)
+
+@app.route('/api/inter_state_bus_tickets', methods=['GET'])
+def api_search_inter_state_bus_tickets():
+    # Extract query parameters from the request
+    from_city = request.args.get('from')
+    to_city = request.args.get('to')
+    departure_date = request.args.get('departure_date')
+    return_date = request.args.get('return_date')
+
+    # Implement the logic to search for inter-state bus tickets here
+    # You can make API requests to bus ticket providers and process the results
+    # Example:
+    # bus_ticket_results = search_inter_state_bus_tickets(from_city, to_city, departure_date, return_date)
+
+    # Return the results as JSON
+    return jsonify(bus_ticket_results)
 
 @app.route('/')
 def user_home():
     # Your home page logic here
     return render_template('user_page.html')
+
+@app.route('/buy_airline_ticket', methods=['Get'])
+def buy_airplane_ticket():
+    # Define the logic for buying airplane tickets
+    # You can render a template or return a form for ticket purchase
+    return render_template('buy_airline_ticket.html')
 
 @app.route('/api/search_flights', methods=['GET'])
 def api_search_flights():
@@ -299,10 +357,17 @@ def airline_details(airline_id):
     # Implement logic to retrieve and display details for the given airline_id
     return render_template('airline_page.html')
 
-@app.route('/airline_page', methods=['GET'])
-def buy_bus_ticket():
-    # You can add your logic here, if needed
-    return render_template('airline_page.html')
+@app.route('/book_hotel', methods=['Get'])
+def book_hotel():
+    # Define the logic for displaying user's profile
+    # You can render a template or return user profile data
+    return "Book Hotels"
+
+@app.route('/call_cab')
+def call_cab():
+    # Define the logic for displaying user's profile
+    # You can render a template or return user profile data
+    return "Call a cab"
 
 @app.route('/user_profile')
 def user_profile():
@@ -321,20 +386,10 @@ def about():
     # Your code for the About page goes here
     return render_template('about.html')
 
-@app.route('/privacy')
-def privacy():
-    # Your code for the Privacy page goes here
-    return render_template('privacy.html')
-
-@app.route('/terms')
-def terms():
-    # Your code for the Terms page goes here
-    return render_template('terms.html')
-
-@app.route('/contact')
-def contact():
+@app.route('/chat')
+def chat():
     # Your code for the Contact page goes here
-    return render_template('contact.html')
+    return render_template('chat.html')
 
 # Logout route
 @app.route('/logout')
@@ -343,4 +398,4 @@ def logout():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    socketio.run(app, debug=True)

@@ -34,3 +34,14 @@ function submitLoginForm(event) {
             console.error('Error:', error);
         });
     }
+
+const contactLink = document.querySelector('.contact-link');
+const contactInfo = document.querySelector('.contact-info');
+
+contactLink.addEventListener('mouseenter', () => {
+    contactInfo.style.display = 'block';
+});
+
+contactLink.addEventListener('mouseleave', () => {
+    contactInfo.style.display = 'none';
+});

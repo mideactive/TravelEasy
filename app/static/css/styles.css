@@ -1,89 +1,129 @@
-/* Reset default browser styles */
-body, h1, h2, h3, p, ul, li, button {
+/* Reset some default styles */
+body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
+/* Global Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
-    line-height: 1.6;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 /* Header Styles */
 header {
-    background-color: #ffcc80; /* A softer shade of orange */
-    padding: 2rem; /* Increased padding for a larger header */
+    background-color: #4285f4;
+    color: #fff;
     display: flex;
-    justify-content: space-between; /* Align logo to the right and header-links to the left */
+    justify-content: space-between;
     align-items: center;
-    position: relative; /* Add position for pseudo-element */
+    padding: 40px 50px;
 }
 
-/* Logo Styles (aligned to the right) */
 .logo {
-    text-align: right;
+    display: flex;
+    align-items: center;
 }
 
-/* Logo Image Styles */
-.logo img {
-    width: 150px; /* Adjust the size as needed */
-    height: auto;
-    border-radius: 50%; /* Makes the logo circular */
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
-}
-
-/* Pseudo-element for a decorative circle behind the logo */
-.logo::before {
-    content: "";
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-    border-radius: 50%;
-    top: -50px;
-    left: calc(50% - 100px);
-    z-index: -1;
-}
-
-/* Add hover effect to the logo */
-.logo img:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-
-/* Header Links Styles (aligned to the left) */
 .header-links {
-    text-align: left;
+    display: flex;
+    align-items: center;
 }
 
-/* Style for Header Links */
 .header-links a {
-    color: white;
-    text-decoration: none; /* Remove default underline */
-    margin-right: 20px; /* Add spacing between links */
-    font-weight: bold; /* Bold font weight */
-    font-size: 18px; /* Font size */
-    font-family: 'Arial', sans-serif; /* Lovely text font */
-    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth color and underline transition on hover */
+    text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+    font-weight: bold;
 }
 
-/* Underline on Hover */
-.header-links a:hover {
-    text-decoration: underline; /* Underline on hover */
+/* Style for the Contact menu */
+.contact-link {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
 }
 
-/* Hero section styles */
+.contact-link a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+}
+
+.contact-link a:hover {
+    background-color: #fff;
+    color: #4285f4;
+}
+
+.contact-info {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    text-align: left;
+    border-radius: 5px;
+    display: none;
+}
+
+.contact-link:hover .contact-info {
+    display: block; /* Show on hover of .contact-link */
+}
+
+.contact-header {
+    font-weight: bold;
+    margin: 0;
+}
+
+.contact-number {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.chat-info {
+    display: flex;
+    align-items: center;
+}
+
+.chat-link {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+    background-color: lime;
+}
+
+.indicator {
+    background-color: green;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-right: -10px;
+}
+
+/* Hero Section Styles */
 .hero {
-    background-image: url('./image/hero-bg.jpg');
-    background-color: #f9f9f9;
+    background-image: url('your-hero-image.jpg');
     background-size: cover;
     background-position: center;
     text-align: center;
+    padding: 100px 0;
     color: #fff;
-    padding: 5rem 0;
 }
 
 .hero-content {
@@ -91,258 +131,195 @@ header {
     margin: 0 auto;
 }
 
-/* Hero heading styles */
-.hero-content h1 {
-    font-size: 2.5rem; /* Increase the font size for the heading */
-    color: #333; /* Dark gray font color */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle text shadow */
-    margin-bottom: 1rem; /* Add some spacing below the heading */
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
-/* Hero paragraph styles */
-.hero-content p {
-    font-size: 1.2rem; /* Increase the font size for the paragraph */
-    color: #666; /* Medium gray font color */
-    margin-bottom: 2rem; /* Add more spacing below the paragraph */
+.hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
 }
 
 .cta-button {
-    font-size:1.5rem;
-    display: inline-block;
-    background-color: #3498db;
+    background-color: #4285f4;
     color: #fff;
+    border: none;
+    border-radius: 4px;
     padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
-    border:none;
-    font-family: 'Montserrat', sans-serif;
     transition: background-color 0.3s ease;
+    text-transform: uppercase;
 }
 
 .cta-button:hover {
-    background-color: #ffcc80;
+    background-color: #357ae8;
 }
 
-/* Position the buttons in the center of the hero content */
-.hero-content {
-    text-align: center;
-}
-
-/* Add spacing between the buttons and the text */
-.hero-content {
+/* Signup Form Styles */
+#form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin-top: 20px;
 }
 
-/* styling signup form */
-    .signup-form {
-        display: none;
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #f4f4f4;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .signup-form input[type="text"],
-    .signup-form input[type="email"],
-    .signup-form input[type="password"],
-    .signup-form input[type="tel"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
-    .signup-form button[type="submit"] {
-        background-color: #3498db;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        transition: background-color 0.3s ease;
-    }
-
-    .signup-form button[type="submit"]:hover {
-        background-color: #2980b9;
-    }
-
-/* CSS for the login section */
-.login-section {
-    background-color: #f7f7f7;
-    padding: 15px 0;
+.signup-form {
+    display: none;
     text-align: center;
-    margin-bottom:50px;
+}
+
+.signup-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup-form button {
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+/* Login Section Styles */
+.login-section {
+    background-color: #fff;
+    padding: 40px 0;
+    text-align: center;
 }
 
 .login-form {
     max-width: 400px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.login-form input[type="text"],
-.login-form input[type="password"],
-.login-form button {
-    width: 100%;
-    padding: 15px 2px;
-    margin-bottom: 5px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: #f7f7f7;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.login-form input[type="text"]:focus,
-.login-form input[type="password"]:focus,
-.login-form button:focus {
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .login-form label {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 14px;
-    color: #666;
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
-.login-form input[type="checkbox"] {
-    margin-right: 5px;
-    vertical-align: middle;
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.login-form button {
-    background-color: #007bff;
+.login-form .btn-primary {
+    background-color: #4285f4;
     color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 20px;
 }
 
-.login-form button:hover {
-    background-color: #0056b3;
-}
-
-.login-form a {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s ease;
-}
-
-.login-form a:hover {
-    color: #0056b3;
-}
-
-/* Sales section styles */
+/* Sales Section Styles */
 .sales {
     display: flex;
     justify-content: space-around;
-    padding: -1rem;
-    background-color: #fff;
     flex-wrap: wrap;
-    margin-bottom:50px;
+    padding: 40px 0;
+    background-color: #f9f9f9;
 }
 
 .sales-item {
     text-align: center;
-    padding: 1.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f5f5f5;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-    margin: 1rem;
-    flex: 1;
 }
 
 .sales-item h3 {
-    margin-bottom: 1rem;
-    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .sales-item ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
-    color: #666;
 }
 
 .sales-item li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 10px;
 }
 
 .sales-item button {
-    background-color: #ff9800;
+    background-color: #4285f4;
     color: #fff;
     border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-transform: uppercase;
 }
 
-.sales-item button:hover {
-    background-color: #ffcc80;
-}
-
-/* Footer styles */
+/* Footer Styles */
 footer {
-    background-color: #333;
-    color: #fff;
     text-align: center;
-    padding: 1rem;
-    width: 100%; /* Set the width to 100% */
-    position: fixed; /* Set the position to fixed */
-    bottom: 0; /* Position at the bottom */
-    left: 0; /* Align to the left */
+    padding: 10px 0;
+    background-color: #4285f4;
+    color: #fff;
+    /* Remove "position: absolute;" and "bottom: 0;" */
+    width: 100%;
+    position: relative;
+    margin-top: auto;
 }
 
-/* Media Queries */
+/* Media Queries for Responsive Design */
 @media screen and (max-width: 768px) {
-    .hero {
-        padding: 3rem 0;
+    /* Adjust styles for smaller screens here */
+    header {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .hero-content {
-        max-width: 90%;
+    .header-links {
+        margin-top: 10px;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .signup-form, .login-form {
+        max-width: 300px;
+    }
+
+    .sales {
+        flex-direction: column;
+        align-items: center;
     }
 
     .sales-item {
-        flex-basis: 100%;
+        width: 100%;
     }
 }
-/* Responsive Media Queries */
-@media screen and (max-width: 768px) {
-    .login-form {
-        max-width: 90%;
-    }
-
-    .login-form input[type="text"],
-    .login-form input[type="password"],
-    .login-form button {
-        padding: 12px;
-        font-size: 14px;
-    }
-}
-/* Responsive styles */
-    @media (max-width: 600px) {
-        .signup-form {
-            max-width: 100%;
-            padding: 15px;
-        }
-
-        .signup-form button[type="submit"] {
-            font-size: 14px;
-            padding: 8px 16px;
-        }
-    }

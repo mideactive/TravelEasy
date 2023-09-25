@@ -37,13 +37,19 @@
     </section>
     <section class="ticket-section">
         <div class="ticket-box airplane">
-            <a href="{{ url_for('buy_airplane_ticket') }}">Buy Airplane Ticket</a>
+            <a href="{{ url_for('buy_airplane_ticket') }}">Buy Airpline Ticket</a>
         </div>
         <div class="ticket-box train">
             <a href="{{ url_for('buy_train_ticket') }}">Buy Train Ticket</a>
         </div>
         <div class="ticket-box bus">
             <a href="{{ url_for('buy_bus_ticket') }}">Buy Bus Ticket</a>
+        </div>
+	<div class="ticket-box hotel">
+            <a href="{{ url_for('book_hotel') }}">Book Hotel</a>
+        </div>
+	<div class="ticket-box cab">
+            <a href="{{ url_for('call_cab') }}">Call A Cab</a>
         </div>
         <div class="ticket-box profile">
             <a href="{{ url_for('user_profile') }}">Profile</a>

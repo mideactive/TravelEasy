@@ -15,8 +15,9 @@ header {
 }
 
 .cover-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    margin-top:-90px;
     object-fit: cover;
 }
 
